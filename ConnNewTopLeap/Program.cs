@@ -53,6 +53,12 @@ namespace ConnNewTopLeap
                 
                 webDriver.FindElement(By.Name("xhtLoginCtrl$_$txtCheckCode")).SendKeys(checkCode);
                 webDriver.FindElement(By.Name("xhtLoginCtrl$_$btnEnter")).Click();
+
+                Thread.Sleep(3000);
+                var cookiesCollection = webDriver.Manage().Cookies.AllCookies;
+                
+                Console.WriteLine(RestHelper.GetContent(cookiesCollection));
+
                 Console.ReadKey();
             }
             catch (Exception ex)
